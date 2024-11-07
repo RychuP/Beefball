@@ -22,11 +22,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\Goal.cs" />
+    <Compile Include="Entities\Goal.Generated.cs">
+      <DependentUpon>Goal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ScoreHud.cs" />
+    <Compile Include="Entities\ScoreHud.Generated.cs">
+      <DependentUpon>Hud.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\PlayerBall.cs" />
     <Compile Include="Entities\PlayerBall.Generated.cs">
       <DependentUpon>PlayerBall.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Puck.cs" />
+    <Compile Include="Entities\Puck.Generated.cs">
+      <DependentUpon>Puck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\GoalFactory.Generated.cs" />
+    <Compile Include="Factories\ScoreHudFactory.Generated.cs" />
     <Compile Include="Factories\PlayerBallFactory.Generated.cs" />
+    <Compile Include="Factories\PuckFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Game1.Generated.cs">
@@ -37,7 +52,13 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Screens\GameScreen.cs" />
+    <Compile Include="Screens\GameScreen.Event.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameScreen.Generated.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameScreen.Generated.Event.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.Generated.cs" />

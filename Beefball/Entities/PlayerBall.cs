@@ -14,6 +14,7 @@ namespace Beefball.Entities
 {
     public partial class PlayerBall
     {
+        double _lastTimeDashed = -2000;
         public I2DInput MovementInput { get; set; }
         public IPressableInput BoostInput { get; set; }
 
@@ -31,6 +32,7 @@ namespace Beefball.Entities
         private void CustomActivity()
         {
             MovementActivity();
+            DashActivity();
         }
 
         private void CustomDestroy()
@@ -41,17 +43,46 @@ namespace Beefball.Entities
 
         private static void CustomLoadStaticContent(string contentManagerName)
         {
+            
 
+        }
 
+        void DashActivity()
+        {
+            float magnitude = MovementInput?.Magnitude ?? 0;
+
+            bool shouldBoost = BoostInput?.WasJustPressed == true &&
+                TimeManager.CurrentScreenSecondsSince(_lastTimeDashed) > DashFrequency &&
+                magnitude > 0;
+
+            if (shouldBoost)
+            {
+                _lastTimeDashed = TimeManager.CurrentScreenTime;
+
+                float normalizedX = MovementInput.X / magnitude;
+                float normalizedY = MovementInput.Y / magnitude;
+
+                XVelocity = normalizedX * DashSpeed;
+                YVelocity = normalizedY * DashSpeed;
+
+                CurrentDashCategoryState = DashCategory.Tired;
+                InterpolateToState(DashCategory.Rested, DashFrequency);
+            }
         }
 
         private void MovementActivity()
         {
             if (MovementInput != null)
             {
-                XVelocity = MovementInput.X * MovementSpeed;
-                YVelocity = MovementInput.Y * MovementSpeed;
+                XAcceleration = MovementInput.X * MovementSpeed;
+                YAcceleration = MovementInput.Y * MovementSpeed;
             }
+        }
+
+        public void ResetDash()
+        {
+            StopStateInterpolation(DashCategory.Tired);
+            _lastTimeDashed = -1000;
         }
     }
 }

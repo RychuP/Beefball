@@ -23,7 +23,7 @@
   ],
   "NamedObjects": [
     {
-      "InstanceName": "PlayerBalls",
+      "InstanceName": "PlayerBallList",
       "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
       "Properties": [
         {
@@ -50,9 +50,194 @@
               "Type": "bool"
             }
           ],
-          "InstructionSaves": [],
+          "InstructionSaves": [
+            {
+              "Type": "Color",
+              "Member": "CooldownCircleColor",
+              "Value": "Pink",
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": -180.0,
+              "Time": 0.0
+            }
+          ],
           "SourceType": 1,
           "SourceFile": "Entities\\PlayerBall",
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        },
+        {
+          "InstanceName": "PlayerBall2",
+          "SourceClassType": "Entities\\PlayerBall",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "Color",
+              "Member": "CircleBodyColor",
+              "Value": "Cyan",
+              "Time": 0.0
+            },
+            {
+              "Type": "Color",
+              "Member": "CooldownCircleColor",
+              "Value": "Pink",
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 180.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        }
+      ]
+    },
+    {
+      "InstanceName": "PuckList",
+      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "PositionedObjectList (Generic)",
+      "SourceClassGenericType": "Entities\\Puck",
+      "ExposedInDerived": true,
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true,
+      "ContainedObjects": [
+        {
+          "InstanceName": "Puck",
+          "SourceClassType": "Entities\\Puck",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [],
+          "SourceType": 1,
+          "SourceFile": "Entities\\Puck",
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        }
+      ]
+    },
+    {
+      "InstanceName": "GoalList",
+      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "PositionedObjectList (Generic)",
+      "SourceClassGenericType": "Entities\\Goal",
+      "ExposedInDerived": true,
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true,
+      "ContainedObjects": [
+        {
+          "InstanceName": "LeftGoal",
+          "SourceClassType": "Entities\\Goal",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": -410.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "SourceFile": "Entities\\Goal",
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        },
+        {
+          "InstanceName": "RightGoal",
+          "SourceClassType": "Entities\\Goal",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 410.0,
+              "Time": 0.0
+            }
+          ],
+          "SourceType": 1,
+          "SourceFile": "Entities\\Goal",
+          "AttachToContainer": true,
+          "GenerateTimedEmit": true
+        }
+      ]
+    },
+    {
+      "InstanceName": "HudList",
+      "SourceClassType": "FlatRedBall.Math.PositionedObjectList<T>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "PositionedObjectList (Generic)",
+      "SourceClassGenericType": "Entities\\ScoreHud",
+      "ExposedInDerived": true,
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true,
+      "ContainedObjects": [
+        {
+          "InstanceName": "ScoreHud",
+          "SourceClassType": "Entities\\ScoreHud",
+          "Properties": [
+            {
+              "Name": "AssociateWithFactory",
+              "Value": true,
+              "Type": "bool"
+            }
+          ],
+          "InstructionSaves": [],
+          "SourceType": 1,
+          "SourceFile": "Entities\\ScoreHud",
           "AttachToContainer": true,
           "GenerateTimedEmit": true
         }
@@ -96,13 +281,13 @@
             {
               "Type": "float",
               "Member": "Height",
-              "Value": 30.0,
+              "Value": 16.0,
               "Time": 0.0
             },
             {
               "Type": "float",
               "Member": "Width",
-              "Value": 800.0,
+              "Value": 770.0,
               "Time": 0.0
             },
             {
@@ -114,7 +299,7 @@
             {
               "Type": "float",
               "Member": "Y",
-              "Value": 300.0,
+              "Value": 292.0,
               "Time": 0.0
             }
           ],
@@ -138,19 +323,25 @@
             {
               "Type": "float",
               "Member": "Height",
-              "Value": 30.0,
+              "Value": 16.0,
               "Time": 0.0
             },
             {
               "Type": "float",
               "Member": "Width",
-              "Value": 800.0,
+              "Value": 770.0,
               "Time": 0.0
             },
             {
               "Type": "float",
               "Member": "Y",
-              "Value": -300.0,
+              "Value": -293.0,
+              "Time": 0.0
+            },
+            {
+              "Type": "float",
+              "Member": "X",
+              "Value": 0.0,
               "Time": 0.0
             }
           ],
@@ -191,7 +382,7 @@
             {
               "Type": "float",
               "Member": "Y",
-              "Value": -200.0,
+              "Value": 200.0,
               "Time": 0.0
             }
           ],
@@ -214,7 +405,7 @@
             {
               "Type": "float",
               "Member": "Height",
-              "Value": 200.0,
+              "Value": 202.0,
               "Time": 0.0
             },
             {
@@ -232,7 +423,7 @@
             {
               "Type": "float",
               "Member": "Y",
-              "Value": 200.0,
+              "Value": -201.0,
               "Time": 0.0
             }
           ],
@@ -273,7 +464,7 @@
             {
               "Type": "float",
               "Member": "Y",
-              "Value": -200.0,
+              "Value": 200.0,
               "Time": 0.0
             }
           ],
@@ -296,7 +487,7 @@
             {
               "Type": "float",
               "Member": "Height",
-              "Value": 200.0,
+              "Value": 202.0,
               "Time": 0.0
             },
             {
@@ -314,7 +505,7 @@
             {
               "Type": "float",
               "Member": "Y",
-              "Value": 200.0,
+              "Value": -201.0,
               "Time": 0.0
             }
           ],
@@ -326,7 +517,7 @@
       ]
     },
     {
-      "InstanceName": "PlayerBallsVsWalls",
+      "InstanceName": "PlayerBallVsWalls",
       "SourceClassType": "FlatRedBall.Math.Collision.ListVsShapeCollectionRelationship<Entities.PlayerBall>",
       "Properties": [
         {
@@ -341,7 +532,7 @@
         },
         {
           "Name": "FirstCollisionName",
-          "Value": "PlayerBalls",
+          "Value": "PlayerBallList",
           "Type": "String"
         },
         {
@@ -363,6 +554,11 @@
           "Name": "FirstCollisionMass",
           "Value": 0.0,
           "Type": "float"
+        },
+        {
+          "Name": "CollisionElasticity",
+          "Value": 0.7,
+          "Type": "float"
         }
       ],
       "InstructionSaves": [],
@@ -370,8 +566,245 @@
       "SourceFile": "FlatRedBall.Math.Collision.ListVsShapeCollectionRelationship<Entities.PlayerBall>",
       "AttachToContainer": true,
       "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PlayerBallVsPlayerBall",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.PlayerBall, Entities.PlayerBall>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "PlayerBallList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "PlayerBallList",
+          "Type": "String"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        },
+        {
+          "Name": "CollisionType",
+          "Value": 2,
+          "Type": "int"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.PlayerBall, Entities.PlayerBall>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PlayerBallVsGoal",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.PlayerBall, Entities.Goal>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "PlayerBallList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "GoalList",
+          "Type": "String"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        },
+        {
+          "Name": "CollisionType",
+          "Value": 2,
+          "Type": "int"
+        },
+        {
+          "Name": "FirstCollisionMass",
+          "Value": 0.0,
+          "Type": "float"
+        },
+        {
+          "Name": "CollisionElasticity",
+          "Value": 0.7,
+          "Type": "float"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.PlayerBall, Entities.Goal>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PuckVsWalls",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsShapeCollectionRelationship<Entities.Puck>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "PuckList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "Walls",
+          "Type": "String"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        },
+        {
+          "Name": "CollisionType",
+          "Value": 2,
+          "Type": "int"
+        },
+        {
+          "Name": "FirstCollisionMass",
+          "Value": 0.0,
+          "Type": "float"
+        },
+        {
+          "Name": "CollisionElasticity",
+          "Value": 0.9,
+          "Type": "float"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.ListVsShapeCollectionRelationship<Entities.Puck>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PuckVsPlayerBall",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Puck, Entities.PlayerBall>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "PuckList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "PlayerBallList",
+          "Type": "String"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        },
+        {
+          "Name": "CollisionType",
+          "Value": 2,
+          "Type": "int"
+        },
+        {
+          "Name": "FirstCollisionMass",
+          "Value": 0.3,
+          "Type": "float"
+        },
+        {
+          "Name": "CollisionElasticity",
+          "Value": 0.7,
+          "Type": "float"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Puck, Entities.PlayerBall>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
+    },
+    {
+      "InstanceName": "PuckVsGoal",
+      "SourceClassType": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Puck, Entities.Goal>",
+      "Properties": [
+        {
+          "Name": "AssociateWithFactory",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "IsAutoNameEnabled",
+          "Value": true,
+          "Type": "bool"
+        },
+        {
+          "Name": "FirstCollisionName",
+          "Value": "PuckList",
+          "Type": "String"
+        },
+        {
+          "Name": "SecondCollisionName",
+          "Value": "GoalList",
+          "Type": "String"
+        },
+        {
+          "Name": "IsDealDamageChecked",
+          "Value": true,
+          "Type": "Object"
+        }
+      ],
+      "InstructionSaves": [],
+      "SourceType": 2,
+      "SourceFile": "FlatRedBall.Math.Collision.ListVsListRelationship<Entities.Puck, Entities.Goal>",
+      "AttachToContainer": true,
+      "GenerateTimedEmit": true
     }
   ],
   "Name": "Screens\\GameScreen",
+  "Events": [
+    {
+      "EventName": "PuckVsGoalCollided",
+      "SourceObject": "PuckVsGoal",
+      "SourceObjectEvent": "CollisionOccurred"
+    }
+  ],
   "CustomClassesForExport": []
 }

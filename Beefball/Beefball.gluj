@@ -44,7 +44,16 @@
   ],
   "EntityReferences": [
     {
+      "Name": "Entities\\Goal"
+    },
+    {
       "Name": "Entities\\PlayerBall"
+    },
+    {
+      "Name": "Entities\\Puck"
+    },
+    {
+      "Name": "Entities\\ScoreHud"
     }
   ],
   "Bookmarks": [],
